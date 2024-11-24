@@ -1,14 +1,17 @@
 'use client'
-import { HomeIcon, Info, User } from "lucide-react";
+import { ArrowLeft, ArrowLeftCircle, HomeIcon, Info, User } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Sidebar  () {
+    
+    const router = useRouter()
 
     const sidebaritems = [
         {
             id: 1,
-            label: 'Dashboard',
+            label: 'Home',
             icon: HomeIcon , 
             path: '/'
         },
@@ -26,36 +29,30 @@ export default function Sidebar  () {
         }
     ]
 
+    const handleLogout = () => {
+        router.push('/login')
+    }
+
     const pathName = usePathname()
     return (
-        <div className=" mx-7 bg-primary h-[620px] rounded-3xl">
-                <div className="flex flex-col mx-5 ">
-                    {/* <div className="flex items-center   mt-[61px] space-x-4">
-                        <div className="w-14 h-14 rounded-full bg-white" ></div>
-                        <h1 className="font-extrabold text-lg">Nama Mahasiswa</h1>
-                    </div> */}
-                    <div className="mt-16 flex justify-center flex-col">
+        <div className="  bg-primary w-[250px] h-screen ">
+                <div className="flex flex-col  ">
+                   
+                   <Image src={'/logouibputih.webp'} alt="logo uib" width={100} height={0} className="mx-auto mt-[50px]"/>
+
+                    <div className="mt-[20px] flex justify-center flex-col">
                         {sidebaritems.map((item: any , index: number) => (
-                            <Link key={index} href={item.path} className={item.path === pathName ? "flex items-center bg-white rounded-lg p-3 text-black space-x-4 font-semibold mt-3 " : "flex items-center space-x-4 text-white font-semibold mt-3 p-3"}>
-                            <item.icon />
-                            <h1>{item.label}</h1>
+                            <Link key={index} href={item.path} className={item.path === pathName ? "flex items-center bg-darkturqoise  pl-[40px] text-white space-x-4 font-semibold mt-3 leading-[60px] " : "flex items-center space-x-4 text-white transition-all ease-in-out duration-500 hover:bg-darkturqoise font-semibold mt-3 pl-[40px] leading-[60px]"}>
+                            <item.icon  />
+                            <h1 className="font-bold">{item.label}</h1>
                         </Link>
                         ))}
+                        
                     </div>
 
-                    <div className="mt-10 bg-white w-[140px]  mx-auto py-2 rounded-lg">
-                        <h1 className="text-black text-center font-semibold uppercase">Log out</h1>
-                    </div>
+                        <button onClick={handleLogout} className=" bg-red mt-[190px] text-white font-bold transition-all duration-500 ease-in-out hover:bg-maroon  text-center h-[50px] w-[130px]  mx-auto rounded-lg border-2 border-white ">Logout</button>
 
-                    <div className="mt-28 h-32 rounded-[20px] bg-white/40">
-                        <div className="flex flex-col mt-6 text-center ">
-                            <p className="">Have any problems?</p>
-
-                            <div className=" mt-8">
-                                <Link href={'/contact'} className="font-semibold rounded-md text-white bg-secondary p-2" >Contact Us</Link>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
         </div>
     )

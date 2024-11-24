@@ -11,7 +11,11 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: '#0085FF',
+        primary: '#00008b',
+        red: '#ff0000',
+        maroon: '#800000',
+        darkturqoise: '#00CED1',
+        silver: '#C0C0C0',
         darkBlue: '#002344',
         linear1: '#E2FFEA', 
         linear2: '#E5E4F6',
