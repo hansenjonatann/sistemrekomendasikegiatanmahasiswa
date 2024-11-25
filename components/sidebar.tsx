@@ -13,7 +13,7 @@ export default function Sidebar  () {
             id: 1,
             label: 'Home',
             icon: HomeIcon , 
-            path: '/'
+            path: '/dashboard'
         },
         {
             id: 2,
