@@ -1,8 +1,7 @@
 'use client'
 import "./globals.css";
 import Sidebar from "@/components/sidebar";
-import { usePathname , useRouter } from "next/navigation";
-import {useEffect} from 'react'
+import { usePathname  } from "next/navigation";
 
 
 
@@ -18,11 +17,7 @@ export default function RootLayout({
 }>) {
 
 const pathName = usePathname()
-const router = useRouter()
 
-  useEffect(() => {
-    router.replace('/login')
-  } , [router])
   
   return (
 
