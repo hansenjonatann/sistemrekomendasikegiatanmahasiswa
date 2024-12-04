@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage () {
+  
 
     const router = useRouter()
     const handleLogin = () => {
@@ -23,7 +24,7 @@ export default function LoginPage () {
 
                         <form action="" className="p-[40px] border-none ">
                           <div className="border-2 border-b-black  my-[30px] h-[50px] outline-none relative flex flex-col">
-                            <label className=" top-[45%] border-none ">Email</label>
+                            <label className=" top-[45%] border-none ">NPM</label>
                             <input type="email" className="bg-transparent outline-none border-none  mb-4 "  />
 
                           </div>
@@ -34,16 +35,7 @@ export default function LoginPage () {
                             
                           </div>
                         
-                        <div className="my-[30px] flex justify-between">
-
-                           <div className="flex">
-                            <input type="checkbox" className="mr-2" />
-                            <span>Remember me</span>
-                           </div>
-
-                           <Link href={''} className="text-primary font-bold">Forgot password?</Link>
-                            
-                        </div>
+                        
 
                           <div className="mt-8">
                             <button onClick={handleLogin} className="bg-primary w-full py-4 text-white rounded-lg font-bold">Login</button>
