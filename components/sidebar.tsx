@@ -3,9 +3,11 @@ import { HomeIcon, Info, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Sidebar  () {
-    
+
+    const pathname = usePathname()
     const router = useRouter()
 
     const sidebaritems = [
@@ -30,8 +32,16 @@ export default function Sidebar  () {
     ]
 
     const handleLogout = () => {
+        localStorage.removeItem('token')
         router.push('/login')
     }
+
+    useEffect(() => {
+        if (!localStorage.getItem('token')) {
+            router.replace('/login')
+            }
+        if(pathname === '/') router.push('/login')
+    } , [])
 
     const pathName = usePathname()
     return (
