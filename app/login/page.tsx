@@ -1,10 +1,8 @@
 'use client'
 import axios from "axios";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import Cookies from 'js-cookie'
 
 export default function LoginPage () {
   
@@ -37,26 +35,26 @@ export default function LoginPage () {
    
     return (
         <div>
-            <div className="flex w-full m-4">
-                <Image src={'/logouib.webp'} width={100} height={100} alt="logo uib" />
-                <h1 className="text-2xl font-extrabold text-wrap w-[30px] ml-4">Universitas Internasional Batam</h1>
-            </div>
+          
 
-            <div className="flex justify-center  ">
-                <div className="bg-white border w-[500px] h-[440px] border-black rounded-lg">
+            <div className="flex justify-center items-center h-screen  ">
+                <div className="bg-white border w-[500px] h-[600px] border-black rounded-lg">
                     <div className="flex flex-col">
+                        <div className="flex justify-center my-4">
+                          <img src={'/recomendation.jpeg'} width={200} height={200} className="w-52 h-auto" alt="Ilustrator" />
+                        </div>
                         <h1 className="text-center text-2xl  font-extrabold mt-8">Login</h1>
 
-                        <form onSubmit={handleLogin} className="p-[40px] border-none " >
+                        <form onSubmit={handleLogin} className="p-[20px] border-none " >
                           <div className="border-2 border-b-black  my-[30px] h-[50px] outline-none relative flex flex-col">
                             <label className=" top-[45%] border-none ">NPM</label>
-                            <input type="text" onChange={(e) => setNpm(e.target.value)} className="bg-transparent outline-none border-none  mb-4 "  />
+                            <input type="text" onChange={(e) => setNpm(e.target.value)} className="bg-transparent outline-none border-none  mb-4 " required  />
 
                           </div>
 
                           <div className="border-2 border-b-black  my-[30px] h-[50px] relative flex flex-col">
                             <label className="top-[45%]">Password</label>
-                            <input type="password" onChange={(e) => setPassword(e.target.value) } className="bg-transparent focus:top-[-10px] mb-4"  />
+                            <input type="password" onChange={(e) => setPassword(e.target.value) } className="bg-transparent focus:top-[-10px] mb-4" required  />
                             
                           </div>
                         

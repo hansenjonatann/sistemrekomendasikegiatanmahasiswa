@@ -25,7 +25,6 @@ export default function Home() {
         headers: {
           Authorization:`Bearer ${token}`
         },
-        withCredentials: true, // Pastikan cookie sesi dikirim bersama permintaan
       });
 
       if(response) {
@@ -33,6 +32,7 @@ export default function Home() {
         setCardList(response.data.recommended_activities);
         setNama(response.data.nama_mahasiswa)
         setNpm(response.data.npm_mahasiswa)
+        setCategory(response.data.category)
       }
     } catch (err : any) {
       setError(err.response?.data?.message || 'Gagal memuat rekomendasi');
@@ -69,15 +69,15 @@ export default function Home() {
 
     <div className="flex flex-col space-y-3">
     <h1 className="font-bold text-xl">Detail</h1>
-    <p>Berdasarkan data yang ada , mahasiswa/i dengan nama <span className="font-bold">{nama} - {npm}</span> : {category == 'Umum' ? 'kategori' : ' memiliki ketertarikan di bidang'} <span className="font-bold">{category}</span> yang termasuk ke dalam cluster / kelompok : <span className="font-bold">{cluster}</span> , untuk mengembangkan kemampuan yang dimiliki oleh <span className="font-semibold">{nama}</span> , sistem memberikan rekomendasi kegiatan untuk <span className="font-bold">{nama}</span> </p>
+    <p>Berdasarkan data yang ada , mahasiswa/i dengan nama <span className="font-bold">{nama} - {npm}</span> : {category == 'Umum' ? 'secara' : ' memiliki ketertarikan di bidang'} <span className="font-bold">{category}</span>  . Sistem memberikan rekomendasi kegiatan yang dapat diikuti oleh <span className="font-bold">{nama}</span> dalam mengembangkan pengetahuan </p>. 
     </div>
 
 
-    <h1 className="font-bold text-primary text-xl mt-4">Recommendation activities</h1>
+    <h1 className="font-bold text-primary text-xl ">Recommendation activities</h1>
 
 
       <div className="grid grid-cols-1 md:gap-5 md:grid-cols-4 mt-6">
-        {cardList.map((item: any , index: number) => (
+        {cardList?.map((item: any , index: number) => (
           <Card title={item.nama_kegiatan} category={item.kategori} key={index}/>
         ) ) }
       </div>

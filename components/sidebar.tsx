@@ -48,7 +48,7 @@ export default function Sidebar  () {
         <div className="  bg-primary w-[250px] h-screen ">
                 <div className="flex flex-col  ">
                    
-                   <Image src={'/logouibputih.webp'} alt="logo uib" width={100} height={0} className="mx-auto mt-[50px]"/>
+                   <img src={'/logouibputih.jpeg'} alt="logo uib" width={100} height={0} className="mx-auto mt-[50px] "  />
 
                     <div className="mt-[20px] flex justify-center flex-col">
                         {sidebaritems.map((item: any , index: number) => (
