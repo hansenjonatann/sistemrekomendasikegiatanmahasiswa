@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 export default function Sidebar  () {
 
@@ -33,6 +34,7 @@ export default function Sidebar  () {
 
     const handleLogout = () => {
         localStorage.removeItem('token')
+        toast.success('Logout Success')
         router.push('/login')
     }
 
@@ -45,7 +47,7 @@ export default function Sidebar  () {
 
     const pathName = usePathname()
     return (
-        <div className="  bg-primary w-[250px] h-screen ">
+        <div className="  bg-primary w-[250px] h-[800px] ">
                 <div className="flex flex-col  ">
                    
                    <img src={'/logouibputih.jpeg'} alt="logo uib" width={100} height={0} className="mx-auto mt-[50px] "  />

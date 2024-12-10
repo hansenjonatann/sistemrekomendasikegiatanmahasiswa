@@ -3,6 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function LoginPage () {
   
@@ -29,6 +30,8 @@ export default function LoginPage () {
         }
       } catch (err : any) {
         setError(err.response?.data?.message || 'Login gagal');
+        toast.error('Login Failed!')
+        router.refresh()
       }
     }
 
@@ -43,9 +46,9 @@ export default function LoginPage () {
                         <div className="flex justify-center my-4">
                           <img src={'/recomendation.jpeg'} width={200} height={200} className="w-52 h-auto" alt="Ilustrator" />
                         </div>
-                        <h1 className="text-center text-2xl  font-extrabold mt-8">Login</h1>
+                        <h1 className="text-center text-2xl dark:text-black  font-extrabold mt-8">Login</h1>
 
-                        <form onSubmit={handleLogin} className="p-[20px] border-none " >
+                        <form onSubmit={handleLogin} className="p-[20px] border-none dark:text-black " >
                           <div className="border-2 border-b-black  my-[30px] h-[50px] outline-none relative flex flex-col">
                             <label className=" top-[45%] border-none ">NPM</label>
                             <input type="text" onChange={(e) => setNpm(e.target.value)} className="bg-transparent outline-none border-none  mb-4 " required  />
