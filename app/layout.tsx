@@ -2,7 +2,7 @@
 import "./globals.css";
 import Sidebar from "@/components/sidebar";
 import { usePathname  } from "next/navigation";
-import { ToastBar, Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 
 

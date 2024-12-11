@@ -1,6 +1,6 @@
 'use client'
+import axios from "axios";
 import { HomeIcon, Info, User } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -32,10 +32,15 @@ export default function Sidebar  () {
         }
     ]
 
-    const handleLogout = () => {
-        localStorage.removeItem('token')
-        toast.success('Logout Success')
-        router.push('/login')
+    const handleLogout = async () => {
+        const res = await axios.post('http://localhost:5000/logout')
+        if(res) 
+        {
+            localStorage.removeItem('token')
+            toast.success('Logout Success')
+            router.push('/login')
+            console.log(res)
+        }
     }
 
     useEffect(() => {

@@ -1,6 +1,5 @@
 'use client'
 import axios from "axios";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -30,7 +29,7 @@ export default function LoginPage () {
         }
       } catch (err : any) {
         setError(err.response?.data?.message || 'Login gagal');
-        toast.error('Login Failed!')
+        toast.error(error)
         router.refresh()
       }
     }

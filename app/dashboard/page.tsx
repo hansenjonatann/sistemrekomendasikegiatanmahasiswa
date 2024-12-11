@@ -3,6 +3,7 @@ import Card from "@/components/card";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 
 export default function Home() {
@@ -13,7 +14,6 @@ export default function Home() {
   const [npm , setNpm] = useState('')
   const router = useRouter()
   const [error , setError] = useState('')
-  const [cluster , setCluster] = useState(0)
   const fetchReomendationData = async () => {
     try {
       const token = localStorage.getItem('token')
@@ -36,6 +36,7 @@ export default function Home() {
       }
     } catch (err : any) {
       setError(err.response?.data?.message || 'Gagal memuat rekomendasi');
+      toast.error(error)
       if (err.response?.status === 401) {
       }
     }
