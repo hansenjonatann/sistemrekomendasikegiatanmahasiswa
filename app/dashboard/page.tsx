@@ -45,32 +45,11 @@ export default function Home() {
 
   useEffect(() => {
     fetchReomendationData()
-  } , [router])
-
-  // const cardList = [
-  //   {
-  //     id: 1,
-  //     title: 'Card 1',
-  //     category: 'SI'
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'Card 2',
-  //     category: 'SI'
-  //   },
-  //   {
-  //     id: 3,
-  //     title: 'Card 3',
-  //     category: 'SI'
-  //   }
-
-  // ]
+  } , [])
   return (
    <div className="mt-4 mr-[50px]">
 
     <div className="flex flex-col space-y-3">
-    <h1 className="font-bold text-xl">Detail</h1>
-    <p>Berdasarkan data yang ada , mahasiswa/i dengan nama <span className="font-bold">{nama} - {npm}</span> : {category == 'Umum' ? 'secara' : ' memiliki ketertarikan di bidang'} <span className="font-bold">{category}</span>  . Sistem memberikan rekomendasi kegiatan yang dapat diikuti oleh <span className="font-bold">{nama}</span> dalam mengembangkan pengetahuan </p>. 
     </div>
 
 
@@ -81,6 +60,10 @@ export default function Home() {
         {cardList?.map((item: any , index: number) => (
           <Card title={item.nama_kegiatan} category={item.kategori} key={index}/>
         ) ) }
+      </div>
+
+      <div className="mt-4">
+        <h1>Berdasarkan dari data rata rata nilai per kategori matakuliah , mahasiswa dengan nama {nama} diberikan rekomendasi kegiatan oleh sistem sesuai dengan perminatan {nama}- {npm}  yaitu <span className="font-bold">{category}</span> yang dapat diikuti oleh {nama} dalam mengembangkan pengetahuan dan keterampilan.</h1>
       </div>
 
    </div>
